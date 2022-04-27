@@ -5,27 +5,22 @@ I/p : arr1[] = {0, 1, 0, 0, 0, 0}
       arr2[] = {1, 0, 1, 0, 0, 1}
 
 O/p : 4
+
+Time : 0(n)
+Space: 0(n)
 */
 
 #include <iostream>
 #include <algorithm>
+#include "0_header.h"
 using namespace std;
 
 int longestSpan(int arr1[], int arr2[], int n)
 {
-    int length = 0;
-    for (int i = 0; i < n; i++)
-    {
-        int arr1CurrSum = 0, arr2CurrSum = 0;
-        for (int j = i; j < n; j++)
-        {
-            arr1CurrSum += arr1[j];
-            arr2CurrSum += arr2[j];
-            if (arr1CurrSum == arr2CurrSum)
-                length = max(length, j - i + 1);
-        }
-    }
-    return length;
+    int *temp = new int[n];
+    for (int i = 0; i < n; i++) // store the subtraction of both arrays in temp and pass it to the longest length of subarray with given sum function
+        temp[i] = arr1[i] - arr2[i];
+    longestLength(temp, n, 0);
 }
 
 int main()
