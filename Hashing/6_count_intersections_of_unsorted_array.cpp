@@ -52,7 +52,7 @@ int main()
 }
 */
 
-//
+// Time = 0(n1+n2), Space = O(n1)
 
 #include <iostream>
 #include <unordered_set>
@@ -62,9 +62,16 @@ using namespace std;
 int countIntersections(int arr1[], int arr2[], int n1, int n2)
 {
     unordered_set <int> u1(arr1, arr1+n1);
-    unordered_set <int> u2(arr2, arr2+n2);
-    
-
+    int res=0;
+    for(int i=0; i<n2; i++) // Traversing the array 
+    {
+        if(u1.count(arr2[i])) // Compare each element of array with every element of u1 set if found increase res
+        {
+            res++;
+            u1.erase(arr2[i]); // Erasing the found element so if our array has duplicates it should increase res for same element 
+        }
+    }
+    return res;
 }
 
 int main()
