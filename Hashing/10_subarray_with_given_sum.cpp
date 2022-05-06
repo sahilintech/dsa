@@ -24,7 +24,7 @@ bool isSubarray(int arr[], int n, int sum)
             return true;
         if (u.find(prefixSum - sum) != u.end()) // if there is a element in hash set which is equal to prefixSum - sum then return true because previous prefix sum + given sum will form current prefix sum
             return true;
-        u.insert(arr[i]);
+        u.insert(prefixSum);
     }
     return false;
 }
