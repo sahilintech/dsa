@@ -19,7 +19,7 @@ int maxSubarrSum(int arr[], int n)
     int sum = arr[0], res = arr[0];
     for (int i = 1; i < n; i++)
     {
-        sum = max(arr[i] + res, arr[i]); // We check if present element is greater or (max of previous subarray + currElement is greater)
+        sum = max(arr[i] + sum, arr[i]); // We check if present element is greater or (max of previous subarray + currElement is greater)
         res = max(res, sum);             // Check if previous if previous res is greater or current sum is greater
     }
     return res;
