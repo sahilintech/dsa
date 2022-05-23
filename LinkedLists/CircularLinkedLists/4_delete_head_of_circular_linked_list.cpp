@@ -1,5 +1,5 @@
 /*
-Given a doubly linked list and data . Insert the data at end of doubly linked list
+Given a circular linked list. Delete the head of circular linked list
 
 I/p : <-10->20->30->
 O/p : <-20->30->
