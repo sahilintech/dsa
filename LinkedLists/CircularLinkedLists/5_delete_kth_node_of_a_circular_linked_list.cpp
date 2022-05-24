@@ -7,6 +7,7 @@ O/p : <-10->30->
 I/p : 10, k=1
 O/p : NULL
 
+Time : O(k)
 */
 
 #include <iostream>
