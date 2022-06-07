@@ -29,11 +29,11 @@ Node *segregateEvenAndOdd(Node *head)
     for (Node *curr = head; curr != NULL; curr = curr->next)
     {
         int x = curr->data;
-        if (x % 2 == 0)  // if curr->data is even
+        if (x % 2 == 0) // if curr->data is even
         {
             if (es == NULL) // first node of even ll initialized
             {
-                es = curr; 
+                es = curr;
                 ee = es;
             }
             else // adding other than first nodes to even ll
@@ -57,10 +57,10 @@ Node *segregateEvenAndOdd(Node *head)
         }
     }
     if (es == NULL || es == NULL) // if we are either only having even or only all odd nodes then we can't link them
-        return head; // if same type of nodes simply return head
-    ee->next = os; // else link evenEnd with oddStart 
-    oe->next = NULL; // make oddEnd as NULL
-    return es; // return evenStart
+        return head;              // if same type of nodes simply return head
+    ee->next = os;                // else link evenEnd with oddStart
+    oe->next = NULL;              // make oddEnd as NULL
+    return es;                    // return evenStart
 }
 
 void printList(Node *head)
