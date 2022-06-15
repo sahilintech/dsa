@@ -1,6 +1,7 @@
 // Unordered map is used to store key value pairs
 #include <iostream>
 #include <unordered_map>
+#include <string>
 #include <algorithm>
 using namespace std;
 int main()
