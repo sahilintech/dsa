@@ -4,7 +4,6 @@ Given a array representing heights of histogram. Find the largest rectangular ar
 I/p : {6, 2, 5, 4, 1, 5, 6}
 O/p : 10(5*2) (bars of height 5 and 6 will contribute to max area as width is 2 and from both bars min height is 5 so 5*2)
 
-*/
 
 //******* Naive Solution************* => Time : O(n^2)
 
@@ -42,5 +41,32 @@ int main()
     int arr[] = {6, 2, 5, 4, 1, 5, 6};
     int n = sizeof(arr) / sizeof(arr[0]);
     cout << largestRectArea(arr, n);
+    return 0;
+}
+
+*/
+
+// Efficient solution: O(n) ,  Space : O(n)
+
+#include <iostream>
+#include <algorithm>
+#include <stack>
+using namespace std;
+
+int largestRectArea(int arr[], int n)
+{
+    stack<int> s;
+    for(int i=0; i<n; i++)
+    {
+        
+    }
+}
+
+int main()
+{
+    int arr[] = {6, 2, 5, 4, 1, 5, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << largestRectArea(arr, n);
+    return 0;
     return 0;
 }
