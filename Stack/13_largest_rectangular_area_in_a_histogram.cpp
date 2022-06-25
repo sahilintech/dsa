@@ -5,7 +5,7 @@ I/p : {6, 2, 5, 4, 1, 5, 6}
 O/p : 10(5*2) (bars of height 5 and 6 will contribute to max area as width is 2 and from both bars min height is 5 so 5*2)
 
 
-//******* Naive Solution************* => Time : O(n^2)
+******** Naive Solution************* => Time : O(n^2)
 
 #include <iostream>
 #include <algorithm>
