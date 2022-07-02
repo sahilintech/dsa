@@ -1,3 +1,4 @@
 *.json
 .vscode
 test.cpp
+test.exe
