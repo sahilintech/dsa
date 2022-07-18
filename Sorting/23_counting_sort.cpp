@@ -13,38 +13,33 @@ Space: O(n+k);
 #include <iostream>
 #include <algorithm>
 using namespace std;
-
-void countingSort(int arr[], int n, int k)
+const int k = 5;
+void countingSort(int arr[], int n)
 {
-    int *temp = new int[k];
-    for (int i = 0; i < k; i++)
-        temp[i] = 0;
+    int temp[k] = {0};
 
     for (int i = 0; i < n; i++)
         temp[arr[i]]++;
 
-    int index = 0;
-
-    for(int i=1; i<k; i++)
-        temp[i] = temp[i-1] + temp[i];
+    for (int i = 1; i < k; i++)
+        temp[i] = temp[i - 1] + temp[i];
 
     int *output = new int[n];
-    for(int i=n-1; i>=0; i--)
+    for (int i = n - 1; i >= 0; i--)
     {
-        output[temp[arr[i]]-1] = arr[i];
+        output[temp[arr[i]] - 1] = arr[i];
         temp[arr[i]]--;
     }
-    for(int i=0; i<n; i++)
-    arr[i] = output[i];
+    for (int i = 0; i < n; i++)
+        arr[i] = output[i];
 }
 
 int main()
 {
     int arr[] = {1, 4, 4, 1, 0, 1};
     int n = sizeof(arr) / sizeof(arr[0]);
-    int k = 5;
-    countingSort(arr, n, k);
-    for(int i=0; i<n; i++)
-    cout<<arr[i]<<" ";
+    countingSort(arr, n);
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
     return 0;
 }
