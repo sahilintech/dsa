@@ -6,6 +6,10 @@ I/p = in[] = {20, 10, 40, 30, 50}
     pre[] = {10, 20, 30, 40, 50}
 
 O/p : Binary tree
+
+Time : O(n^2)
+
+For doing it in O(n) use hashmap to store the indexes of inorder array so we do not need to find by taking loop inside function
 */
 
 #include <iostream>
