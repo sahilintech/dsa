@@ -1,5 +1,5 @@
 /*
-Given a bst. Print nodes of bst in vertical order
+Given a bst. Print the top view of bst
 
 Time: 0(n)
 Space: 0(n)
@@ -7,8 +7,8 @@ Space: 0(n)
 
 #include <iostream>
 #include <algorithm>
-#include <map>
 #include <queue>
+#include <map>
 using namespace std;
 
 struct Node
@@ -22,17 +22,17 @@ struct Node
     }
 };
 
-void verticalTraversalOfBST(Node *root, int hd, map<int, vector<int>> &m)
+void printTopViewOfBST(Node *root, map<int, int> &m)
 {
     queue<pair<Node *, int>> q;
-    q.push({root, hd});
+    q.push({root, 0});
     while (q.empty() == false)
     {
         auto p = q.front();
         q.pop();
         Node *curr = p.first;
         int sec = p.second;
-        m[sec].push_back(curr->key);
+        m.insert({sec, curr->key});
         if (curr->left != NULL)
             q.push({curr->left, sec - 1});
         if (curr->right != NULL)
@@ -44,16 +44,14 @@ int main()
 {
     Node *root = new Node(10);
     root->left = new Node(20);
-    root->right = new Node(30);
-    root->left->left = new Node(40);
-    root->left->right = new Node(50);
-    map<int, vector<int>> m;
-    verticalTraversalOfBST(root, 0, m);
+    root->left->left = new Node(30);
+    root->left->right = new Node(40);
+    root->right = new Node(50);
+    root->right->right = new Node(70);
+    root->right->left = new Node(60);
+    map<int, int> m;
+    printTopViewOfBST(root, m);
     for (auto i : m)
-    {
-        for (int y : i.second)
-            cout << y << " ";
-        cout << endl;
-    }
+        cout << i.second << " ";
     return 0;
 }
