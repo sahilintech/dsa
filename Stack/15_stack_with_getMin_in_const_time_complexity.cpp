@@ -57,7 +57,7 @@ int main()
 #include <algorithm>
 #include <stack>
 using namespace std;
-
+d
 struct MyStack
 {
     stack<int> s;
