@@ -14,7 +14,7 @@ void primMst(vector<pair<int, int>> adj[], int N)
     int key[N];
     bool mstSet[N];
 
-    for (int i = 0; i < N - 1; i++)
+    for (int i = 0; i < N; i++)
     {
         key[i] = INT_MAX;
         mstSet[i] = false;
@@ -22,32 +22,36 @@ void primMst(vector<pair<int, int>> adj[], int N)
 
     key[0] = 0;
     parent[0] = -1;
-    int ansWeight = 0;
-    for (int count = 0; count = N - 1; count++)
+    for (int count = 0; count < N - 1; count++)
     {
         int mini = INT_MAX, u;
-        for (int v = 0; v < N; v++)
+        for (int v = 0; v < N; v++) // iterate through all keys and pick out the minimum key(i.e vertex) from key array
         {
             if (mstSet[v] == false && key[v] < mini)
                 mini = key[v], u = v;
         }
         mstSet[u] = true;
 
-        for (auto it : adj[u])
+        for (auto it : adj[u]) // iterate through all adjacents of current minimum key
         {
             int v = it.first;
             int weight = it.second;
-            if (mstSet[v] == false && weight < key[v])
+            if (mstSet[v] == false && weight < key[v]) // update parent of current key 
                 parent[v] = u, key[v] = weight;
         }
     }
+    int sum = 0;
     for (int i = 1; i < N; i++)
+    {
         cout << parent[i] << " - " << i << " \n";
+        sum = sum + key[i];
+    }
+    cout<<"Weight of graph is "<<sum<<endl;
 }
 
 int main()
 {
-    int N = 5, m = 6;
+    int N = 5;
     vector<pair<int, int>> adj[N];
     adj[0].push_back({1, 2});
     adj[0].push_back({3, 6});
@@ -64,3 +68,4 @@ int main()
     primMst(adj, N);
     return 0;
 }
+
