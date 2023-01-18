@@ -21,7 +21,7 @@ int maxConsec1(bool arr[], int n)
         if (arr[i] == 1)
         {
             count++;
-            res = max(res, count); // Store max value of count in max
+            res = max(res, count); // Store max value of count and res in res.
         }
         else
             count = 0; // if arr[i] is 0 then count again.

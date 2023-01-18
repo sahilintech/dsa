@@ -13,7 +13,7 @@ O/p : Don't print anything as elements are already same
 I/p : {0, 1}
 O/p : Print one of both below
       Flip from 0 to 0
-      Flop from 1 to 1
+      Flip from 1 to 1
 */
 
 #include <iostream>
